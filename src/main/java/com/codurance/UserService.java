@@ -12,11 +12,11 @@ public class UserService {
 
     public void save(User user) {
         if(userValidation.checkValidityOf(user)) {
-            if (user.getId() == 0) {
+            if (user.getId() == 0) {  //way to remove this nested if statement
                 userRepository.create(user);
             } else {
                 userRepository.update(user);
             }
-        }
+        } else throw new RuntimeException("user is not valid");
     }
 }
