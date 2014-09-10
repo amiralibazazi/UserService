@@ -3,7 +3,6 @@ package com.codurance;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -26,6 +25,11 @@ public class UserServiceShould {
         when(userValidation.checkValidityOf(USER_WITH_INVALID_NAME)).thenReturn(false);
     }
 
+    @Test (expected=RuntimeException.class)public void
+    throw_an_exception_when_a_user_is_found_to_be_invalid() {
+        userService.save(USER_WITH_INVALID_NAME);
+    }
+
     @Test public void
     create_a_user() {
         userService.save(VALID_NEW_USER);
@@ -39,13 +43,8 @@ public class UserServiceShould {
     }
 
     @Test public void
-    create_a_user_if_valid() {  //should we name this something different?
+    check_the_validity_of_a_user() {  //should we name this something different?
         userService.save(VALID_EXISTING_USER);
         verify(userRepository).update(VALID_EXISTING_USER);
-    }
-
-    @Test (expected=RuntimeException.class)public void
-    throw_an_exception_when_a_user_is_found_to_be_invalid() {
-        userService.save(USER_WITH_INVALID_NAME);
     }
 }
