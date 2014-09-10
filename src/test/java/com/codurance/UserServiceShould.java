@@ -31,8 +31,8 @@ public class UserServiceShould {
     }
 
     @Test public void
-    create_a_user() {
-        userService.save(VALID_NEW_USER);
+    create_a_user() {  //when do you determine that these tests become redundant?
+        userService.save(VALID_NEW_USER); //if so, what to rename other tests?
         verify(userRepository).create(VALID_NEW_USER);
     }
 
