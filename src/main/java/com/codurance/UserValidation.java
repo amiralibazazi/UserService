@@ -1,12 +1,15 @@
 package com.codurance;
 
 public class UserValidation {
+
+    private final String emailRegex = "\\w+" + "@" + "\\w+\\." + "com";
+
     boolean returnValidityOf(User user) {
         return nameValidityOf(user) && emailValidityOf(user);
     }
 
     private boolean emailValidityOf(User user) {
-        if(user.getEmail().contains("@")) {
+        if (user.getEmail().matches(emailRegex)) {
             return true;
         } else {
             throw new RuntimeException("User email was not valid");
