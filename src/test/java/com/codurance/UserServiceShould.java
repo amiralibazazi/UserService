@@ -8,9 +8,9 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class UserServiceShould {
-    private static final User VALID_NEW_USER = new User(0, "sandro", "mancuso", "sandro@codurance.com");
-    private static final User VALID_EXISTING_USER = new User(1, "amir", "bazazi", "amir@codurance.com"); //consolidate to less parameters?
-    private static final User USER_WITH_INVALID_NAME = new User(1, "", "", "amir@codurance.com"); //too many parameters?
+    private static final User VALID_NEW_USER = new User(0, "sandro", "mancuso", "sandro@codurance.com", "24/06/1956");
+    private static final User VALID_EXISTING_USER = new User(1, "amir", "bazazi", "amir@codurance.com", "24/06/1956"); //consolidate to less parameters?
+    private static final User USER_WITH_INVALID_NAME = new User(1, "", "", "amir@codurance.com", "24/06/1956"); //too many parameters?
     private UserRepository userRepository;
     private UserService userService;
     private UserValidation userValidation;

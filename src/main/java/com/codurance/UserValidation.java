@@ -5,7 +5,15 @@ public class UserValidation {
     private final String emailRegex = "\\w+" + "@" + "\\w+\\." + "com";
 
     boolean returnValidityOf(User user) {
-        return nameValidityOf(user) && emailValidityOf(user);
+        return nameValidityOf(user) && emailValidityOf(user) && ageValidityOf(user);
+    }
+
+    private boolean ageValidityOf(User user) {
+        if(user.getAge() >= 18) {
+            return true;
+        } else {
+            throw new RuntimeException("User is not of age, user's age is = " + user.getAge());
+        }
     }
 
     private boolean emailValidityOf(User user) {
