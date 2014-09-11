@@ -20,9 +20,9 @@ public class UserServiceShould {
         userRepository = mock(UserRepository.class);
         userValidation = mock(UserValidation.class);
         userService = new UserService(userRepository, userValidation);
-        when(userValidation.checkValidityOf(VALID_EXISTING_USER)).thenReturn(true); //repetition?
-        when(userValidation.checkValidityOf(VALID_NEW_USER)).thenReturn(true);
-        when(userValidation.checkValidityOf(USER_WITH_INVALID_NAME)).thenReturn(false);
+        when(userValidation.returnValidityOf(VALID_EXISTING_USER)).thenReturn(true); //repetition?
+        when(userValidation.returnValidityOf(VALID_NEW_USER)).thenReturn(true);
+        when(userValidation.returnValidityOf(USER_WITH_INVALID_NAME)).thenReturn(false);
     }
 
     @Test (expected=RuntimeException.class)public void

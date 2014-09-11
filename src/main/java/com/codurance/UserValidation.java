@@ -1,5 +1,7 @@
 package com.codurance;
 
-public interface UserValidation {
-    boolean checkValidityOf(User user);
+public class UserValidation {
+    boolean returnValidityOf(User user) {
+        return (user.getFirstName() != "" && user.getLastName() != "");
+    }
 }

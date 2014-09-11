@@ -11,7 +11,7 @@ public class UserService {
     }
 
     public void save(User user) {
-        if(userValidation.checkValidityOf(user)) {
+        if(userValidation.returnValidityOf(user)) {
             if (user.getId() == 0) {  //way to remove this nested if statement
                 userRepository.create(user);
             } else {
