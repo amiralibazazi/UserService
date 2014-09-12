@@ -3,20 +3,20 @@ package com.codurance;
 public class UserService {
 
     private UserRepository userRepository;
-    private UserValidation userValidation;
+    private UserValidator userValidator;
 
-    public UserService(UserRepository userRepository, UserValidation userValidation) {
+    public UserService(UserRepository userRepository, UserValidator userValidator) {
         this.userRepository = userRepository;
-        this.userValidation = userValidation;
+        this.userValidator = userValidator;
     }
 
-    public void save(User user) {
-        if(userValidation.returnValidityOf(user)) {
-            if (user.getId() == 0) {  //way to remove this nested if statement
+    public void save(User user) { //way to remove nested if statements?
+        if(userValidator.isValid(user)) {
+            if (user.isNew()) {
                 userRepository.create(user);
             } else {
                 userRepository.update(user);
             }
-        } else throw new RuntimeException("user is not valid");
+        } else throw new RuntimeException(("user is not valid"));
     }
 }

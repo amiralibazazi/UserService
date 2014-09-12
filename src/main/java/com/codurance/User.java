@@ -8,7 +8,7 @@ public class User {
     private final String lastName;
     private final String emailAddress;
     private final String dateOfBirth;
-    Calendar now;
+    private Calendar now;
     private final int CURRENT_YEAR = now.getInstance().get(Calendar.YEAR);
 
     public User(int id, String firstName, String lastName, String emailAddress, String dateOfBirth) {
@@ -17,7 +17,6 @@ public class User {
         this.lastName = lastName;
         this.emailAddress = emailAddress;
         this.dateOfBirth = dateOfBirth;
-
     }
 
     public int getId() {
@@ -37,7 +36,11 @@ public class User {
     }
 
     public int getAge() {
-       String[] ddMMyy = dateOfBirth.split("/");
-       return CURRENT_YEAR - Integer.parseInt(ddMMyy[2]);
+       String[] DdMmYy = dateOfBirth.split("/");
+       return CURRENT_YEAR - Integer.parseInt(DdMmYy[2]);
+    }
+
+    public boolean isNew() {
+        return getId() == 0;
     }
 }
