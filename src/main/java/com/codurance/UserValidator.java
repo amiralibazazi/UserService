@@ -1,5 +1,6 @@
 package com.codurance;
 
+//REMOVE THIS CLASS AND GIVE ITS RESPONSIBILITIES TO THE USER CLAS
 public class UserValidator {
 
     private final String emailRegex = "\\w+" + "@" + "\\w+\\." + "com";
